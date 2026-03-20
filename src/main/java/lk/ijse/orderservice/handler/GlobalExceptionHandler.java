@@ -1,20 +1,19 @@
 package lk.ijse.orderservice.handler;
 
-import lk.ijse.orderservice.exception.OrderServiceException;
-import org.springframework.http.HttpStatus;
+import lk.ijse.orderservice.exception.OrderNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(OrderServiceException.class)
-    public ResponseEntity<String> handleOrderException(OrderServiceException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<String> handleOrder(OrderNotFoundException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneral(Exception e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<String> handleOther(Exception e) {
+        return ResponseEntity.internalServerError().body(e.getMessage());
     }
 }

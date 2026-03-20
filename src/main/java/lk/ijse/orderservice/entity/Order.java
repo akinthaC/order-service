@@ -11,24 +11,25 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderEntity {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String customerName;
     private String customerPhone;
-    private String tableNo;
+    private String customerName;
 
     private Long foodId;
     private String foodName;
+
+    private String tableNo;
 
     private int qty;
     private double price;
     private double total;
 
-    private String status; // Pending, Cooking, Done
+    private String status;
 
     private LocalDateTime date;
 }

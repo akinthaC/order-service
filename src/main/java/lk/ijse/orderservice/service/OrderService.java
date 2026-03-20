@@ -6,13 +6,15 @@ import java.util.List;
 
 public interface OrderService {
 
-    OrderDTO placeOrder(OrderDTO dto);
+    OrderDTO createOrder(OrderDTO dto);
+
+    OrderDTO updateOrder(Long id, OrderDTO dto);
+
+    void deleteOrder(Long id);
+
+    OrderDTO getOrder(Long id);
 
     List<OrderDTO> getAllOrders();
 
-    List<OrderDTO> getOrdersByPhone(String phone);
-
     OrderDTO updateStatus(Long id, String status);
-
-    void deleteOrder(Long id);
 }

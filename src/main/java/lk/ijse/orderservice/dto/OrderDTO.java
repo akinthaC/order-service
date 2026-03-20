@@ -12,17 +12,19 @@ public class OrderDTO {
 
     private Long id;
 
-    private String customerName;
     private String customerPhone;
-    private String tableNo;
+    private String customerName;
 
     private Long foodId;
     private String foodName;
+
+    private String tableNo;
 
     private int qty;
     private double price;
     private double total;
 
     private String status;
+
     private LocalDateTime date;
 }

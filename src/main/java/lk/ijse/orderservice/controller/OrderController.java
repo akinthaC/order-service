@@ -16,8 +16,8 @@ public class OrderController {
     private final OrderService service;
 
     @PostMapping
-    public OrderDTO placeOrder(@RequestBody OrderDTO dto) {
-        return service.placeOrder(dto);
+    public OrderDTO create(@RequestBody OrderDTO dto) {
+        return service.createOrder(dto);
     }
 
     @GetMapping
@@ -25,16 +25,18 @@ public class OrderController {
         return service.getAllOrders();
     }
 
-    @GetMapping("/phone/{phone}")
-    public List<OrderDTO> getByPhone(@PathVariable String phone) {
-        return service.getOrdersByPhone(phone);
+    @GetMapping("/{id}")
+    public OrderDTO get(@PathVariable Long id) {
+        return service.getOrder(id);
+    }
+
+    @PutMapping("/{id}")
+    public OrderDTO update(@PathVariable Long id, @RequestBody OrderDTO dto) {
+        return service.updateOrder(id, dto);
     }
 
     @PutMapping("/{id}/status")
-    public OrderDTO updateStatus(
-            @PathVariable Long id,
-            @RequestParam String status
-    ) {
+    public OrderDTO updateStatus(@PathVariable Long id, @RequestParam String status) {
         return service.updateStatus(id, status);
     }
 
