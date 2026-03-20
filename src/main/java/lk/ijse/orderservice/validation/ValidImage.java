@@ -1,4 +1,4 @@
-package lk.ijse.foodservice.validation;
+package lk.ijse.orderservice.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

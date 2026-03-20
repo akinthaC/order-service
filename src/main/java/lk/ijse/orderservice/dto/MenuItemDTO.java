@@ -1,8 +1,12 @@
-package lk.ijse.foodservice.dto;
+package lk.ijse.orderservice.dto;
 
-import jakarta.validation.constraints.*;
-import lk.ijse.foodservice.validation.ValidImage;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lk.ijse.orderservice.validation.ValidImage;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 @Data
